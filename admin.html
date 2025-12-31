@@ -2,17 +2,14 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<title>Big Dogs Ladder – Court Assignment Tool</title>
+<title>Big Dogs Court Planner 🎾</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 * { box-sizing: border-box; }
 body {
 margin: 0;
-background: #050816;
-background-image:
-radial-gradient(circle at 0% 0%, rgba(56, 189, 248, 0.18) 0, transparent 50%),
-radial-gradient(circle at 100% 100%, rgba(168, 85, 247, 0.15) 0, transparent 55%);
+background: radial-gradient(circle at 0 0, #15803d 0, #052e16 40%, #020617 75%);
 font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 color: #e5e7eb;
 padding: 32px 16px 40px;
@@ -25,13 +22,13 @@ margin: 0;
 font-size: 32px;
 font-weight: 800;
 letter-spacing: -0.04em;
-background: linear-gradient(135deg, #ffffff, #93c5fd, #a855f7);
+background: linear-gradient(135deg, #fef9c3, #bbf7d0, #86efac);
 -webkit-background-clip: text;
 -webkit-text-fill-color: transparent;
 }
 .subtitle {
 margin-top: 6px;
-color: #9ca3af;
+color: #d1fae5;
 font-size: 14px;
 }
 
@@ -39,21 +36,25 @@ font-size: 14px;
 max-width: 420px;
 margin: 0 auto 18px;
 text-align: left;
+background: rgba(15, 118, 110, 0.2);
+border-radius: 999px;
+padding: 8px 12px;
+border: 1px solid rgba(16, 185, 129, 0.4);
 }
 .week-label-wrap label {
 display: block;
-font-size: 12px;
+font-size: 11px;
 text-transform: uppercase;
 letter-spacing: 0.16em;
-color: #9ca3af;
-margin-bottom: 4px;
+color: #a7f3d0;
+margin-bottom: 3px;
 }
 #weekLabel {
 width: 100%;
-padding: 7px 9px;
+padding: 5px 9px;
 border-radius: 999px;
 border: 1px solid rgba(148,163,184,0.6);
-background: #020617;
+background: rgba(15,23,42,0.9);
 color: #e5e7eb;
 font-size: 13px;
 }
@@ -68,11 +69,11 @@ gap: 18px;
 }
 
 .card {
-background: radial-gradient(circle at 0 0, rgba(148,163,184,0.22) 0, transparent 55%),
-#020617;
+background:
+linear-gradient(135deg, rgba(15,23,42,0.95), rgba(6, 78, 59, 0.95));
 border-radius: 18px;
 padding: 18px 20px 20px;
-border: 1px solid rgba(148,163,184,0.25);
+border: 1px solid rgba(22,163,74,0.35);
 box-shadow: 0 18px 40px rgba(0,0,0,0.6);
 }
 .card-header {
@@ -85,12 +86,12 @@ margin-bottom: 12px;
 font-size: 14px;
 letter-spacing: 0.18em;
 text-transform: uppercase;
-color: #9ca3af;
+color: #bbf7d0;
 font-weight: 700;
 }
 .card-subtitle {
 font-size: 12px;
-color: #6b7280;
+color: #a7f3d0;
 }
 
 .controls {
@@ -102,7 +103,7 @@ margin-bottom: 14px;
 }
 .hint {
 font-size: 11px;
-color: #9ca3af;
+color: #d1fae5;
 margin-bottom: 10px;
 }
 
@@ -130,7 +131,7 @@ border: 1px solid rgba(148,163,184,0.45);
 .btn-ghost {
 background: transparent;
 color: #e5e7eb;
-border: 1px dashed rgba(148,163,184,0.5);
+border: 1px dashed rgba(148,163,184,0.6);
 }
 
 .courts-grid {
@@ -146,10 +147,12 @@ padding-right: 4px;
 }
 
 .court-card {
-background: rgba(15,23,42,0.92);
+background:
+linear-gradient(180deg, rgba(4,120,87,0.9), rgba(6,95,70,0.98));
 border-radius: 14px;
 padding: 10px 12px 12px;
-border: 1px solid rgba(55,65,81,0.8);
+border: 1px solid rgba(22,163,74,0.6);
+box-shadow: inset 0 0 0 2px rgba(15,118,110,0.6);
 }
 .court-header {
 display: flex;
@@ -160,11 +163,11 @@ margin-bottom: 6px;
 .court-name {
 font-size: 13px;
 font-weight: 700;
-color: #e5e7eb;
+color: #f9fafb;
 }
 .court-tag {
 font-size: 11px;
-color: #9ca3af;
+color: #bbf7d0;
 }
 
 table {
@@ -177,18 +180,18 @@ th {
 font-size: 10px;
 text-transform: uppercase;
 letter-spacing: 0.12em;
-color: #6b7280;
-border-bottom: 1px solid rgba(31,41,55,1);
+color: #a7f3d0;
+border-bottom: 1px solid rgba(5,46,22,1);
 }
-td { border-bottom: 1px solid rgba(17,24,39,0.9); }
+td { border-bottom: 1px solid rgba(4,47,46,0.9); }
 tr:last-child td { border-bottom: none; }
 
 input[type="text"], input[type="number"] {
 width: 100%;
 padding: 4px 6px;
 border-radius: 6px;
-border: 1px solid rgba(55,65,81,0.9);
-background: #020617;
+border: 1px solid rgba(15,23,42,0.9);
+background: rgba(15,23,42,0.96);
 color: #e5e7eb;
 font-size: 12px;
 }
@@ -204,31 +207,28 @@ margin-top: 4px;
 .output-table th, .output-table td {
 padding: 6px 6px;
 text-align: left;
-border-bottom: 1px solid rgba(31,41,55,1);
+border-bottom: 1px solid rgba(15,23,42,1);
 }
 .output-table th {
 font-size: 11px;
 text-transform: uppercase;
 letter-spacing: 0.12em;
-color: #9ca3af;
+color: #a7f3d0;
 }
-.court-label {
-font-weight: 700;
-color: #e5e7eb;
-}
+.court-label { font-weight: 700; color: #f9fafb; }
 
 .badge-live {
 display: inline-flex;
 align-items: center;
 gap: 5px;
 font-size: 11px;
-color: #22c55e;
+color: #bbf7d0;
 font-weight: 600;
 }
 .dot {
 width: 7px; height: 7px;
 border-radius: 50%;
-background: #22c55e;
+background: #facc15;
 animation: pulse 1.8s infinite;
 }
 @keyframes pulse { 0%,100%{opacity:1;}50%{opacity:.35;} }
@@ -246,12 +246,11 @@ color: #bbf7d0;
 
 .small-note {
 font-size: 11px;
-color: #9ca3af;
+color: #a7f3d0;
 margin-top: 6px;
 line-height: 1.5;
 }
 
-/* PRINT VIEW – only show the right card on white background */
 @media print {
 body {
 background: #ffffff !important;
@@ -295,8 +294,8 @@ color: #000000 !important;
 <body>
 <div class="container">
 <div class="header">
-<h1 class="title">Big Dogs Court Planner</h1>
-<p class="subtitle">Type in tonight’s scores → get next week’s courts in one click.</p>
+<h1 class="title">Big Dogs Court Planner 🎾</h1>
+<p class="subtitle">Enter tonight’s scores, get automatic court movement for next week.</p>
 </div>
 
 <div class="week-label-wrap">
@@ -305,14 +304,13 @@ color: #000000 !important;
 </div>
 
 <div class="layout">
-<!-- LEFT: INPUT -->
 <div class="card no-print">
 <div class="card-header">
 <div>
 <div class="card-title">Weekly input</div>
-<div class="card-subtitle">Enter totals for each player on each court.</div>
+<div class="card-subtitle">Scores and subs for all seven courts.</div>
 </div>
-<div class="badge-live"><span class="dot"></span>Offline · No login needed</div>
+<div class="badge-live"><span class="dot"></span>Front desk view</div>
 </div>
 
 <div class="controls">
@@ -328,7 +326,6 @@ Scoring: 7 points per set won + number of games won. Enter each player’s total
 <div id="input-message" class="error"></div>
 </div>
 
-<!-- RIGHT: OUTPUT -->
 <div class="card print-area">
 <div class="card-header">
 <div>
@@ -337,7 +334,7 @@ Scoring: 7 points per set won + number of games won. Enter each player’s total
 </div>
 <div class="no-print" style="display:flex; gap:8px;">
 <button id="copyBtn" class="btn-secondary">Copy courts to clipboard</button>
-<button onclick="window.print()" class="btn-ghost">Print</button>
+<button onclick="window.print()" class="btn-ghost">Print sheet</button>
 </div>
 </div>
 
@@ -351,9 +348,7 @@ Scoring: 7 points per set won + number of games won. Enter each player’s total
 <th>Player 4</th>
 </tr>
 </thead>
-<tbody id="output-body">
-<!-- filled by JS -->
-</tbody>
+<tbody id="output-body"></tbody>
 </table>
 
 <div id="output-message" class="small-note">
@@ -369,7 +364,7 @@ const COURT_COUNT = 7;
 const PLAYERS_PER_COURT = 4;
 const STORAGE_KEY = "bigdogs_state_v1";
 
-let lastResult = null; // stores latest "next week courts" for copy button
+let lastResult = null;
 let lastInputCourts = null;
 
 function makeCourtsUI() {
@@ -435,7 +430,7 @@ const subEl = document.querySelector(`input[name="court${c}-sub${i}"]`);
 
 if (!nameEl) continue;
 const name = (nameEl.value || "").trim();
-if (!name) continue; // ignore empty rows
+if (!name) continue;
 
 let pts = parseFloat((ptsEl && ptsEl.value) || "0");
 if (Number.isNaN(pts)) pts = 0;
@@ -480,7 +475,6 @@ if (!players.length) return;
 
 const sorted = [...players].sort((a, b) => b.points - a.points);
 
-// Winner is best non-sub on that court
 let winner = null;
 for (const p of sorted) {
 if (!p.isSub) {
@@ -641,9 +635,7 @@ const weekLabel = document.getElementById("weekLabel").value || "";
 const courts = lastInputCourts || collectInputs();
 const payload = { weekLabel, courts };
 localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
-} catch (e) {
-// ignore storage failures
-}
+} catch (e) {}
 }
 
 function loadState() {
@@ -673,9 +665,7 @@ if (subEl) subEl.checked = !!p.isSub;
 });
 
 lastInputCourts = courts;
-} catch (e) {
-// ignore bad stored data
-}
+} catch (e) {}
 }
 
 function attachAutoSaveListeners() {
@@ -697,7 +687,6 @@ const weekLabelEl = document.getElementById("weekLabel");
 weekLabelEl.addEventListener("input", saveState);
 }
 
-// Init
 makeCourtsUI();
 document.getElementById("calculateBtn").addEventListener("click", onCalculate);
 document.getElementById("clearBtn").addEventListener("click", onClear);
